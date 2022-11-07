@@ -1,0 +1,25 @@
+k = 0
+input_array = []
+input_string = 'bbd'
+comparison_string = 'ddd'
+
+for index in input_string:
+    input_array.append(index)
+def step1(i):   
+        input_array[i], input_array[i+1] = input_array[i+1], input_array[i]
+        return i
+
+while (comparison_string[k] == input_array[k] and k<len(input_array)-1):
+    k += 1
+
+while(k<=len(input_array)-1):
+    if ord(comparison_string[k])  > ord(input_array[k]):
+        input_array[k] = chr(ord(input_array[k]) + 1)
+    elif ord(comparison_string[k])  < ord(input_array[k]):
+        step1(k)
+    elif ord(comparison_string[k])  == ord(input_array[k]):
+        k+=1
+if (input_array == comparison_string):
+    print(1)
+else:
+    print(input_array)
